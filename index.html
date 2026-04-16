@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>✨ Vitrine TikTok | Priscila Rodrigues</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000000; /* Fundo preto estilo TikTok */
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px 16px 60px;
+        }
+
+        /* ========= HEADER PERFIL TIKTOK (ESTILO VERTICAL) ========= */
+        .profile-header {
+            background: #111111;
+            border-radius: 24px;
+            padding: 20px 24px;
+            margin-bottom: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .avatar-tiktok {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .avatar-tiktok img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ff004f;
+            background: #2a2a2a;
+        }
+
+        .tiktok-badge {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: #000;
+            color: white;
+            border-radius: 20px;
+            padding: 2px 6px;
+            font-size: 10px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .tiktok-badge i {
+            color: #25F4EE;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-info h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .profile-info .username {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #aaa;
+            margin: 4px 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .username a {
+            text-decoration: none;
+            color: #ff004f;
+            background: #1a1a1a;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .username a:hover {
+            background: #ff004f;
+            color: white;
+        }
+
+        .bio {
+            color: #aaa;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .bio span i {
+            margin-right: 6px;
+            color: #ff004f;
+        }
+
+        .btn-seguir {
+            background: #ff004f;
+            color: white;
+            border: none;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-seguir:hover {
+            background: #e60046;
+            transform: scale(1.02);
+        }
+
+        /* ========= VITRINE - GRADE DE CARDS ESTILO TIKTOK ========= */
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 20px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            background: #ff004f;
+            color: white;
+            border-radius: 50%;
+            padding: 6px;
+            font-size: 1rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 10px;
+        }
+
+        /* Card estilo TikTok vertical */
+        .product-card {
+            background: #111111;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #2a2a2a;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+            border-color: #ff004f;
+        }
+
+        /* Área da imagem - proporção mais alta estilo TikTok */
+        .product-img {
+            width: 100%;
+            aspect-ratio: 9 / 16; /* Proporção vertical estilo TikTok */
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.02);
+        }
+
+        /* Conteúdo do card */
+        .product-info {
+            padding: 16px;
+            flex: 1;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #fff;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-description {
+            font-size: 0.75rem;
+            color: #aaa;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .price-tag {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #ff004f;
+            margin-bottom: 14px;
+        }
+
+        .price-tag small {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #777;
+        }
+
+        /* Botão comprar */
+        .btn-buy {
+            background: #ff004f;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 10px 0;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-buy i {
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+        }
+
+        .btn-buy:hover {
+            background: #e60046;
+            transform: scale(1.02);
+        }
+
+        /* Rodapé */
+        .footer {
+            margin-top: 50px;
+            background: #111111;
+            border-radius: 24px;
+            padding: 24px 20px;
+            color: #aaa;
+            text-align: center;
+            border: 1px solid #2a2a2a;
+        }
+
+        .footer p {
+            margin: 6px 0;
+            font-size: 0.8rem;
+        }
+
+        .footer a {
+            color: #ff95b5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            color: #ff004f;
+            text-decoration: underline;
+        }
+
+        /* Botão fixo WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background-color: #25D366;
+            color: white;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s ease;
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            background-color: #20b859;
+        }
+
+        /* Responsividade */
+        @media (max-width: 700px) {
+            .container {
+                padding: 16px 12px 50px;
+            }
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .bio {
+                justify-content: center;
+            }
+            .section-title {
+                font-size: 1.2rem;
+            }
+            .whatsapp-float {
+                width: 48px;
+                height: 48px;
+                font-size: 24px;
+                bottom: 16px;
+                right: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                gap: 16px;
+            }
+            .product-img {
+                aspect-ratio: 4 / 5; /* Um pouco mais quadrado no mobile para melhor visualização */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- ========= HEADER PERFIL TIKTOK ========= -->
+    <div class="profile-header">
+        <div class="avatar-tiktok">
+            <img src="https://p16-common-sign.tiktokcdn.com/tos-alisg-avt-0068/a60bf0756fb6bba38fae838da4043864~tplv-tiktokx-cropcenter:720:720.jpeg?dr=14579&amp;refresh_token=3216a1cd&amp;x-expires=1776441600&amp;x-signature=XqnwAKwh3NPgokCssuzzN2cYZrQ%3D&amp;t=4d5b0474&amp;ps=13740610&amp;shp=a5d48078&amp;shcp=81f88b70&amp;idc=my" alt="avatar perfil" 
+                 onerror="this.src='https://randomuser.me/api/portraits/women/68.jpg'">
+            <div class="tiktok-badge">
+                <i class="fab fa-tiktok"></i> TikTok
+            </div>
+        </div>
+        <div class="profile-info">
+            <h1>Priscila Rodrigues</h1>
+            <div class="username">
+                <i class="fab fa-tiktok" style="color:#ff004f;"></i> @priscilarodrigues9016
+                <a href="https://www.tiktok.com/@priscilarodrigues9016?_r=1&_t=ZS-95Z0uldGEBW" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-external-link-alt"></i> Ver perfil
+                </a>
+            </div>
+            <div class="bio">
+                <span><i class="fas fa-star"></i> Criadora de conteúdo</span>
+                <span><i class="fas fa-shopping-bag"></i> Revenda oficial</span>
+                <span><i class="fas fa-map-marker-alt"></i> Brasil</span>
+            </div>
+        </div>
+        <a href="https://www.tiktok.com/@priscilarodrigues9016?_r=1&_t=ZS-95Z0uldGEBW" target="_blank" rel="noopener noreferrer" class="btn-seguir">
+            <i class="fab fa-tiktok"></i> Seguir
+        </a>
+    </div>
+
+    <!-- Título da vitrine -->
+    <div class="section-title">
+        <i class="fas fa-store"></i>
+        <span>✨ Vitrine de Produtos ✨</span>
+    </div>
+
+    <!-- Grid dos produtos -->
+    <div class="products-grid" id="productsGrid"></div>
+
+    <!-- Rodapé -->
+    <div class="footer">
+        <p><i class="fas fa-crown" style="color:#ffb347;"></i> <strong>Priscila Vencedora</strong> — Sua revendedora oficial</p>
+        <p>💖 Produtos com garantia e procedência | Clique no botão "Comprar Agora" e garanta o seu!</p>
+        <p>🔗 <a href="https://www.tiktok.com/@priscilarodrigues9016" target="_blank">@priscilarodrigues9016 no TikTok</a> | Todos os direitos reservados © 2025</p>
+        <p style="font-size:0.7rem; margin-top:8px;"><i class="fas fa-hand-holding-heart"></i> Você é redirecionado(a) para a loja oficial — comissão para a Priscila Vencedora ❤️</p>
+    </div>
+</div>
+
+<!-- Botão fixo WhatsApp -->
+<a href="#" id="whatsappFixedBtn" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+    // LISTA DE PRODUTOS (SUBSTITUA AS IMAGENS PELAS FOTOS REAIS)
+    const produtos = [
+        { nome: "Blusa Feminina em Tricô Mousse", descricao: "Gola alta, listras delicadas", preco: "R$ 79,90", link: "https://vt.tiktok.com/ZS9L5TbXLs7XQ-4II30/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/4437fabd6a5c40589611120f1044bd10~tplv-aphluv4xwc-crop-webp:1024:1024.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
+        { nome: "Conjunto Jeans Moderno", descricao: "Edição limitada, estilo único", preco: "R$ 99,90", link: "https://vt.tiktok.com/ZS9L9LUDLpWdt-O9tpU/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/9d16908898084d919dfb95faa296dfea~tplv-aphluv4xwc-crop-webp:1600:1600.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
+        { nome: "Vestido Floral Premium", descricao: "Design exclusivo para arrasar", preco: "R$ 119,90", link: "https://vt.tiktok.com/ZS9L9LHGnx9xY-0yoAj/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/556638aefc494c5daf8146b505371d82~tplv-aphluv4xwc-crop-webp:1024:1024.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
+        { nome: "Camiseta Oversized", descricao: "Conforto e estilo streetwear", preco: "R$ 64,90", link: "https://vt.tiktok.com/ZS9L9LXAmxopx-lDJgx/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/e3b0b688f0944bebbeec3b7f763ab148~tplv-aphluv4xwc-crop-webp:800:800.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
+        { nome: "Calça Cargo Feminina", descricao: "Aprovada por influenciadoras", preco: "R$ 149,90", link: "https://vt.tiktok.com/ZS9L9LbmVXGPH-YmYX9/", image: "https://picsum.photos/id/52/400/600" },
+        { nome: "Jaqueta Jeans Vintage", descricao: "O mais vendido da semana", preco: "R$ 89,90", link: "https://vt.tiktok.com/ZS9L9YyAcUWVQ-lGAdB/", image: "https://picsum.photos/id/60/400/600" },
+        { nome: "Macacão Elegante", descricao: "Coleção verão 2025", preco: "R$ 109,90", link: "https://vt.tiktok.com/ZS9L9Y5EL1mrK-197aK/", image: "https://picsum.photos/id/66/400/600" },
+        { nome: "Saia Midi Couro", descricao: "Tendência e sofisticação", preco: "R$ 139,90", link: "https://vt.tiktok.com/ZS9L9Y4xtCsp6-OKNFq/", image: "https://picsum.photos/id/76/400/600" },
+        { nome: "Blazer Feminino", descricao: "Edição especial outono", preco: "R$ 159,90", link: "https://vt.tiktok.com/ZS9L9Y9JSwQHD-p9HwW/", image: "https://picsum.photos/id/89/400/600" },
+        { nome: "Body Rendado", descricao: "Estilo único, qualidade A", preco: "R$ 77,90", link: "https://vt.tiktok.com/ZS9L9jfeP7eDD-Ji3VD/", image: "https://picsum.photos/id/96/400/600" },
+        { nome: "Short Jeans Rasgado", descricao: "Presente ideal para o verão", preco: "R$ 94,90", link: "https://vt.tiktok.com/ZS9L9jubyaEo6-jFrfh/", image: "https://picsum.photos/id/101/400/600" },
+        { nome: "Cropped Tricot", descricao: "Novidade! Super desconto", preco: "R$ 69,90", link: "https://vt.tiktok.com/ZS9L9jHg8myWc-tvXFk/", image: "https://picsum.photos/id/113/400/600" },
+        { nome: "Bolsa Transparente", descricao: "Edição colecionador", preco: "R$ 199,90", link: "https://vt.tiktok.com/ZS9L9jXu5PxPY-NhLc4/", image: "https://picsum.photos/id/120/400/600" }
+    ];
+
+    // Renderizar os cards
+    const gridContainer = document.getElementById('productsGrid');
+
+    function renderProducts() {
+        if (!gridContainer) return;
+        gridContainer.innerHTML = '';
+        produtos.forEach((prod) => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            
+            const imgWrapper = document.createElement('div');
+            imgWrapper.className = 'product-img';
+            const img = document.createElement('img');
+            img.src = prod.image;
+            img.alt = `Imagem ${prod.nome}`;
+            img.loading = 'lazy';
+            img.onerror = () => { img.src = 'https://picsum.photos/id/1/400/600'; };
+            imgWrapper.appendChild(img);
+            
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'product-info';
+            
+            const title = document.createElement('div');
+            title.className = 'product-title';
+            title.innerText = prod.nome;
+            
+            const desc = document.createElement('div');
+            desc.className = 'product-description';
+            desc.innerHTML = `<i class="fas fa-tag"></i> ${prod.descricao}`;
+            
+            const preco = document.createElement('div');
+            preco.className = 'price-tag';
+            preco.innerHTML = `${prod.preco} <small>à vista</small>`;
+            
+            const btnComprar = document.createElement('button');
+            btnComprar.className = 'btn-buy';
+            btnComprar.innerHTML = '<i class="fas fa-shopping-cart"></i> Comprar Agora <i class="fas fa-arrow-right"></i>';
+            
+            btnComprar.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (prod.link && prod.link !== '#') {
+                    window.open(prod.link, '_blank', 'noopener,noreferrer');
+                } else {
+                    alert('Link de compra atualizado em breve!');
+                }
+            });
+            
+            infoDiv.appendChild(title);
+            infoDiv.appendChild(desc);
+            infoDiv.appendChild(preco);
+            infoDiv.appendChild(btnComprar);
+            
+            card.appendChild(imgWrapper);
+            card.appendChild(infoDiv);
+            gridContainer.appendChild(card);
+        });
+    }
+    
+    renderProducts();
+
+    // Botão WhatsApp
+    const whatsappNumber = "5511999999999"; // 🔁 SUBSTITUA PELO SEU NÚMERO REAL
+    const whatsappMessage = "Olá Priscila! Vi seus produtos na vitrine TikTok e quero saber mais!";
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+    const waButton = document.getElementById('whatsappFixedBtn');
+    if (waButton) {
+        waButton.href = whatsappLink;
+    }
+</script>
+</body>
+</html>
