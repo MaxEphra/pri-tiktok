@@ -238,19 +238,6 @@
             gap: 6px;
         }
 
-        .price-tag {
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: #ff004f;
-            margin-bottom: 14px;
-        }
-
-        .price-tag small {
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: #777;
-        }
-
         /* Botão comprar */
         .btn-buy {
             background: #ff004f;
@@ -449,7 +436,7 @@
         { nome: "Tênis Moleca Feminino Classic", descricao: "Napa, Conforto, Cadarço, Solado Branco", preco: "R$ 69,90", link: "https://vt.tiktok.com/ZS9L9jXu5PxPY-NhLc4/", image: "https://p16-oec-va.ibyteimg.com/tos-maliva-i-o3syd03w52-us/8695967697b34dd0be733f6ad732ff5f~tplv-o3syd03w52-crop-webp:1024:1024.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" }
     ];
 
-    // Renderizar os cards
+    // Renderizar os cards (sem preço)
     const gridContainer = document.getElementById('productsGrid');
 
     function renderProducts() {
@@ -465,6 +452,7 @@
             img.src = prod.image;
             img.alt = `Imagem ${prod.nome}`;
             img.loading = 'lazy';
+            // Fallback para imagens quebradas ou lentas
             img.onerror = () => { img.src = 'https://picsum.photos/id/1/400/600'; };
             imgWrapper.appendChild(img);
             
@@ -479,10 +467,7 @@
             desc.className = 'product-description';
             desc.innerHTML = `<i class="fas fa-tag"></i> ${prod.descricao}`;
             
-            const preco = document.createElement('div');
-            preco.className = 'price-tag';
-            preco.innerHTML = `${prod.preco} <small>à vista</small>`;
-            
+            // Botão comprar
             const btnComprar = document.createElement('button');
             btnComprar.className = 'btn-buy';
             btnComprar.innerHTML = '<i class="fas fa-shopping-cart"></i> Comprar Agora <i class="fas fa-arrow-right"></i>';
@@ -498,7 +483,7 @@
             
             infoDiv.appendChild(title);
             infoDiv.appendChild(desc);
-            infoDiv.appendChild(preco);
+            // REMOVIDO: preço (price-tag)
             infoDiv.appendChild(btnComprar);
             
             card.appendChild(imgWrapper);
