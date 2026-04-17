@@ -17,7 +17,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #000000; /* Fundo preto estilo TikTok */
+            background: #000000;
             color: #ffffff;
             scroll-behavior: smooth;
         }
@@ -28,7 +28,7 @@
             padding: 20px 16px 60px;
         }
 
-        /* ========= HEADER PERFIL TIKTOK (ESTILO VERTICAL) ========= */
+        /* ========= HEADER PERFIL TIKTOK ========= */
         .profile-header {
             background: #111111;
             border-radius: 24px;
@@ -38,7 +38,7 @@
             flex-wrap: wrap;
             align-items: center;
             gap: 20px;
-            border: 1px solid #2a2a2a;
+            border: 1px solid #ec0e0e;
         }
 
         .avatar-tiktok {
@@ -125,17 +125,25 @@
             color: #ff004f;
         }
 
+        /* Grupo de botões do header */
+        .header-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+
         .btn-seguir {
             background: #ff004f;
             color: white;
             border: none;
-            padding: 8px 24px;
+            padding: 8px 20px;
             border-radius: 40px;
             font-weight: 600;
             font-size: 0.85rem;
             cursor: pointer;
             transition: 0.2s;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
             text-decoration: none;
@@ -146,7 +154,7 @@
             transform: scale(1.02);
         }
 
-        /* ========= VITRINE - GRADE DE CARDS ESTILO TIKTOK ========= */
+        /* ========= VITRINE - GRADE DE CARDS ========= */
         .section-title {
             font-size: 1.4rem;
             font-weight: 700;
@@ -171,7 +179,6 @@
             margin-top: 10px;
         }
 
-        /* Card estilo TikTok vertical */
         .product-card {
             background: #111111;
             border-radius: 20px;
@@ -188,10 +195,9 @@
             border-color: #ff004f;
         }
 
-        /* Área da imagem - proporção mais alta estilo TikTok */
         .product-img {
             width: 100%;
-            aspect-ratio: 9 / 16; /* Proporção vertical estilo TikTok */
+            aspect-ratio: 9 / 16;
             background: #1a1a1a;
             display: flex;
             align-items: center;
@@ -211,7 +217,6 @@
             transform: scale(1.02);
         }
 
-        /* Conteúdo do card */
         .product-info {
             padding: 16px;
             flex: 1;
@@ -238,7 +243,6 @@
             gap: 6px;
         }
 
-        /* Botão comprar */
         .btn-buy {
             background: #ff004f;
             color: white;
@@ -266,9 +270,31 @@
             transform: scale(1.02);
         }
 
+        /* Botão horizontal "Ver todos os produtos" */
+        .btn-all-products {
+            display: block;
+            text-align: center;
+            background: linear-gradient(95deg, #ff004f, #e60046);
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 40px 0 30px;
+            transition: 0.2s;
+            box-shadow: 0 6px 14px rgba(255, 0, 79, 0.3);
+        }
+
+        .btn-all-products:hover {
+            transform: scale(1.02);
+            background: #ff1a5e;
+            box-shadow: 0 8px 18px rgba(255, 0, 79, 0.5);
+        }
+
         /* Rodapé */
         .footer {
-            margin-top: 50px;
+            margin-top: 20px;
             background: #111111;
             border-radius: 24px;
             padding: 24px 20px;
@@ -341,6 +367,9 @@
                 bottom: 16px;
                 right: 16px;
             }
+            .header-buttons {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -348,7 +377,7 @@
                 gap: 16px;
             }
             .product-img {
-                aspect-ratio: 4 / 5; /* Um pouco mais quadrado no mobile para melhor visualização */
+                aspect-ratio: 4 / 5;
             }
         }
     </style>
@@ -382,19 +411,26 @@
                 </a>
             </div>
         </div>
-        <a href="https://www.tiktok.com/@priscilarodrigues9016?_r=1&_t=ZS-95Z0uldGEBW" target="_blank" rel="noopener noreferrer" class="btn-seguir">
-            <i class="fab fa-tiktok"></i> Seguir
-        </a>
-        <div class="bio">
-            <span><i class="fas fa-star"></i> Criadora de conteúdo</span>
-            <span><i class="fas fa-map-marker-alt"></i> Brasil</span>
+        
+        <!-- Botões organizados corretamente -->
+        <div class="header-buttons">
+            <a href="https://www.tiktok.com/@priscilarodrigues9016?_r=1&_t=ZS-95Z0uldGEBW" target="_blank" rel="noopener noreferrer" class="btn-seguir">
+                <i class="fab fa-tiktok"></i> Seguir
+            </a>
+            <a href="#" class="btn-seguir" id="shareButton">
+                <i class="fas fa-share-alt"></i> Compartilhar
+            </a>
+            <a href="https://vt.tiktok.com/ZSHWT2Thu/?page=TikTokShop" target="_blank" rel="noopener noreferrer" class="btn-seguir">
+                <i class="fas fa-shopping-bag"></i> Vitrine
+            </a>
         </div>
-        <br>
-        <a href="https://vt.tiktok.com/ZSHWT2Thu/?page=TikTokShop" target="_blank" rel="noopener noreferrer" class="btn-seguir">
-            <i class="fab fa-tiktok"></i> Vitrine
-        </a>
+        
+        <div class="bio">
+            <span><i class="fas fa-star"></i> CRIADORA DE CONTEÚDO</span>
+            <span><i class="fas fa-map-marker-alt"></i> BRASIL</span>
+        </div>
     </div>
-
+    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@priscilarodrigues9016/video/7629439177725152533" data-video-id="7629439177725152533" style="max-width: 625px;min-width: 325px;" > <section> <a target="_blank" title="@priscilarodrigues9016" href="https://www.tiktok.com/@priscilarodrigues9016?refer=embed">@priscilarodrigues9016</a> Gente… eu só queria arrumar UMA cama 😅 terminei arrumando a casa inteira 🤡 Sério, comecei colocando essa colcha e quando vi já tava em TODOS os quartos 😅 Mas olha isso!!! As camas ficaram lindas demais 😍✨ Agora tá tudo com cara de casa organizada (mesmo quando não tá kkk) ✔️ Fácil de arrumar ✔️ Deixa tudo bonito ✔️ Dá até vontade de deitar cedo 😂 ✔️ Tecido lindo e confortável ✔️ Deixa a cama arrumada em segundos ✔️ Combina com qualquer decoração Agora eu entro no quarto e já dá aquela sensação de paz 🥰✨ Se você quer deixar sua casa linda assim também, é sério: vale MUITO a pena! Corre porque isso aqui tá simplesmente maravilhoso 💖👇 <a title="tiktokshop" target="_blank" href="https://www.tiktok.com/tag/tiktokshop?refer=embed">#TikTokShop</a> <a title="casaarrumada" target="_blank" href="https://www.tiktok.com/tag/casaarrumada?refer=embed">#CasaArrumada</a> <a title="quartodossonhos" target="_blank" href="https://www.tiktok.com/tag/quartodossonhos?refer=embed">#QuartoDosSonhos</a> <a title="dicademãe" target="_blank" href="https://www.tiktok.com/tag/dicadem%C3%A3e?refer=embed">#DicaDeMãe</a> <a title="decoração" target="_blank" href="https://www.tiktok.com/tag/decora%C3%A7%C3%A3o?refer=embed">#Decoração</a>     @Ana Oliveira @Leiva Rosa @Triade Connect <a target="_blank" title="♬ Future - Official Sound Studio" href="https://www.tiktok.com/music/Future-6693354155173481218?refer=embed">♬ Future - Official Sound Studio</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
     <!-- Título da vitrine -->
     <div class="section-title">
         <i class="fas fa-store"></i>
@@ -404,12 +440,17 @@
     <!-- Grid dos produtos -->
     <div class="products-grid" id="productsGrid"></div>
 
+    <!-- Botão horizontal para ver todos os produtos (acima do footer) -->
+    <a href="https://vt.tiktok.com/ZSHWT2Thu/?page=TikTokShop" target="_blank" rel="noopener noreferrer" class="btn-all-products">
+        <i class="fas fa-eye"></i> Ver todos os produtos da vitrine <i class="fas fa-arrow-right"></i>
+    </a>
+
     <!-- Rodapé -->
     <div class="footer">
         <p><i class="fas fa-crown" style="color:#ffb347;"></i> <strong>Priscila Vencedora</strong> — Sua revendedora oficial</p>
-        <p>💖 Produtos com garantia e procedência | Clique no botão <a href="https://vt.tiktok.com/ZSHWT2Thu/?page=TikTokShop">"Comprar Agora"></a> e garanta o seu!</p>
+        <p>💖 Produtos com garantia e procedência | Clique no botão "Comprar Agora" e garanta o seu!</p>
         <p>🔗 <a href="https://www.tiktok.com/@priscilarodrigues9016" target="_blank">@priscilarodrigues9016 no TikTok</a> | Todos os direitos reservados © 2025</p>
-        <p style="font-size:0.7rem; margin-top:8px;"><i class="fas fa-link"></i><a href="https://vt.tiktok.com/ZSHWT2Thu/?page=TikTokShop"> Você é redirecionado(a) para a loja oficial da Priscila Vencedora</a> ❤️</p>
+        <p style="font-size:0.7rem; margin-top:8px;"><i class="fas fa-link"></i> <a href="https://vt.tiktok.com/ZSHWT2Thu/?page=TikTokShop">Você é redirecionado(a) para a loja oficial da Priscila Vencedora</a> ❤️</p>
     </div>
 </div>
 
@@ -419,21 +460,21 @@
 </a>
 
 <script>
-    // LISTA DE PRODUTOS (SUBSTITUA AS IMAGENS PELAS FOTOS REAIS)
+    // LISTA DE PRODUTOS (com imagens reais do TikTok)
     const produtos = [
-        { nome: "Blusa Feminina em Tricô Mousse", descricao: "Gola alta, listras delicadas", preco: "R$ 69,52", link: "https://vt.tiktok.com/ZS9L5TbXLs7XQ-4II30/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/4437fabd6a5c40589611120f1044bd10~tplv-aphluv4xwc-crop-webp:1024:1024.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
-        { nome: "Conjunto Feminino Alfaiataria", descricao: "Com Shorts e Botões Fontais", preco: "R$ 85,00", link: "https://vt.tiktok.com/ZS9L9LUDLpWdt-O9tpU/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/9d16908898084d919dfb95faa296dfea~tplv-aphluv4xwc-crop-webp:1600:1600.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
-        { nome: "Vestido em Tricô Mousse", descricao: "Gola alta, Outono Inverno Fio Macio e Confortavél", preco: "R$ 89,00", link: "https://vt.tiktok.com/ZS9L9LHGnx9xY-0yoAj/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/556638aefc494c5daf8146b505371d82~tplv-aphluv4xwc-crop-webp:1024:1024.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
-        { nome: "Guarda-Chuva Automático", descricao: "Abre e fecha reforçado", preco: "R$ 22,79", link: "https://vt.tiktok.com/ZS9L9LXAmxopx-lDJgx/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/e3b0b688f0944bebbeec3b7f763ab148~tplv-aphluv4xwc-crop-webp:800:800.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
-        { nome: "Calça Pantalona Feminina", descricao: "Cintura Alta, com bolsos laterais e tecidoleve", preco: "R$ 44,41", link: "https://vt.tiktok.com/ZS9L9LbmVXGPH-YmYX9/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/674b74ba88ad4df6aca3521e63f18a8d~tplv-aphluv4xwc-crop-webp:806:1068.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
-        { nome: "Kit Body Splash Bold e Seduction", descricao: "Homme Barbour's 200ml", preco: "R$ 58,72", link: "https://vt.tiktok.com/ZS9L9YyAcUWVQ-lGAdB/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/48d1de2a8cab4f32beeb22bcc87cff0b~tplv-aphluv4xwc-crop-webp:1500:1500.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
-        { nome: "Kit Body Splash Me Sweet", descricao: "Delight e Very Sexy Barbour's 200ml", preco: "R$ 58,72", link: "https://vt.tiktok.com/ZS9L9Y5EL1mrK-197aK/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/1f2faa43cfb84180b9546c8a0efd3e62~tplv-aphluv4xwc-crop-webp:1500:1500.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
-        { nome: "Jogo de Lençol Fonha Borboletas Micropercal 400", descricao: "Fios Ponto Palito - ÚLTIMA GERAÇÃO", preco: "R$ 25,50", link: "https://vt.tiktok.com/ZS9L9Y9JSwQHD-p9HwW/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/0182ac2e3152444f899ea2fc3ce4abe0~tplv-aphluv4xwc-crop-webp:1200:1200.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
-        { nome: "Organizador de maquiagem Giratório", descricao: "Suporte Multiuso 2/3 andares p/ Cosméticos e Perfumes", preco: "R$ 35,25", link: "https://vt.tiktok.com/ZS9L9Y4xtCsp6-OKNFq/", image: "https://p16-oec-va.ibyteimg.com/tos-maliva-i-o3syd03w52-us/5bd3bf6fb5d4410481901fe5b2274436~tplv-o3syd03w52-crop-webp:1024:1024.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
-        { nome: "Comedouro e bebedouro Automático ", descricao: "Para Cães Premium Jeo Plast", preco: "R$ 66,52", link: "https://vt.tiktok.com/ZS9L9jfeP7eDD-Ji3VD/", image: "https://p16-oec-va.ibyteimg.com/tos-maliva-i-o3syd03w52-us/15e9a38a410046818e9cf9f49a4ace57~tplv-o3syd03w52-crop-webp:1500:1500.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
-        { nome: "Bolsa Tiracolo Feminina Elegante", descricao: "Couro Preto Com Alça Ajustável - Romantic Crown", preco: "R$ 54,58", link: "https://vt.tiktok.com/ZS9L9jubyaEo6-jFrfh/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/bfc32ed72cc141f6803280593250751e~tplv-aphluv4xwc-crop-webp:1500:1500.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
-        { nome: "Iluminador Líquido Bruna Tavares BT", descricao: "Hello Kitty Liquid", preco: "R$ 37,24", link: "https://vt.tiktok.com/ZS9L9jHg8myWc-tvXFk/", image: "https://p16-oec-va.ibyteimg.com/tos-maliva-i-o3syd03w52-us/2cb7bb33e8f748b4824cc68d63dbf7b9~tplv-o3syd03w52-crop-webp:600:600.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
-        { nome: "Tênis Moleca Feminino Classic", descricao: "Napa, Conforto, Cadarço, Solado Branco", preco: "R$ 69,90", link: "https://vt.tiktok.com/ZS9L9jXu5PxPY-NhLc4/", image: "https://p16-oec-va.ibyteimg.com/tos-maliva-i-o3syd03w52-us/8695967697b34dd0be733f6ad732ff5f~tplv-o3syd03w52-crop-webp:1024:1024.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" }
+        { nome: "Blusa Feminina em Tricô Mousse", descricao: "Gola alta, listras delicadas", link: "https://vt.tiktok.com/ZS9L5TbXLs7XQ-4II30/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/4437fabd6a5c40589611120f1044bd10~tplv-aphluv4xwc-crop-webp:1024:1024.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
+        { nome: "Conjunto Feminino Alfaiataria", descricao: "Com Shorts e Botões Frontais", link: "https://vt.tiktok.com/ZS9L9LUDLpWdt-O9tpU/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/9d16908898084d919dfb95faa296dfea~tplv-aphluv4xwc-crop-webp:1600:1600.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
+        { nome: "Vestido em Tricô Mousse", descricao: "Gola alta, Outono Inverno, fio macio", link: "https://vt.tiktok.com/ZS9L9LHGnx9xY-0yoAj/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/556638aefc494c5daf8146b505371d82~tplv-aphluv4xwc-crop-webp:1024:1024.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
+        { nome: "Guarda-Chuva Automático", descricao: "Abre e fecha, reforçado", link: "https://vt.tiktok.com/ZS9L9LXAmxopx-lDJgx/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/e3b0b688f0944bebbeec3b7f763ab148~tplv-aphluv4xwc-crop-webp:800:800.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
+        { nome: "Calça Pantalona Feminina", descricao: "Cintura alta, bolsos laterais", link: "https://vt.tiktok.com/ZS9L9LbmVXGPH-YmYX9/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/674b74ba88ad4df6aca3521e63f18a8d~tplv-aphluv4xwc-crop-webp:806:1068.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
+        { nome: "Kit Body Splash Bold e Seduction", descricao: "Homme Barbour's 200ml", link: "https://vt.tiktok.com/ZS9L9YyAcUWVQ-lGAdB/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/48d1de2a8cab4f32beeb22bcc87cff0b~tplv-aphluv4xwc-crop-webp:1500:1500.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
+        { nome: "Kit Body Splash Me Sweet", descricao: "Delight e Very Sexy 200ml", link: "https://vt.tiktok.com/ZS9L9Y5EL1mrK-197aK/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/1f2faa43cfb84180b9546c8a0efd3e62~tplv-aphluv4xwc-crop-webp:1500:1500.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
+        { nome: "Jogo de Lençol Borboletas Micropercal 400", descricao: "Fios Ponto Palito", link: "https://vt.tiktok.com/ZS9L9Y9JSwQHD-p9HwW/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/0182ac2e3152444f899ea2fc3ce4abe0~tplv-aphluv4xwc-crop-webp:1200:1200.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
+        { nome: "Organizador de maquiagem Giratório", descricao: "Suporte Multiuso 2/3 andares", link: "https://vt.tiktok.com/ZS9L9Y4xtCsp6-OKNFq/", image: "https://p16-oec-va.ibyteimg.com/tos-maliva-i-o3syd03w52-us/5bd3bf6fb5d4410481901fe5b2274436~tplv-o3syd03w52-crop-webp:1024:1024.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
+        { nome: "Comedouro e bebedouro Automático", descricao: "Para Cães Premium Jeo Plast", link: "https://vt.tiktok.com/ZS9L9jfeP7eDD-Ji3VD/", image: "https://p16-oec-va.ibyteimg.com/tos-maliva-i-o3syd03w52-us/15e9a38a410046818e9cf9f49a4ace57~tplv-o3syd03w52-crop-webp:1500:1500.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
+        { nome: "Bolsa Tiracolo Feminina Elegante", descricao: "Couro Preto, alça ajustável", link: "https://vt.tiktok.com/ZS9L9jubyaEo6-jFrfh/", image: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/bfc32ed72cc141f6803280593250751e~tplv-aphluv4xwc-crop-webp:1500:1500.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
+        { nome: "Iluminador Líquido Bruna Tavares BT", descricao: "Hello Kitty Liquid", link: "https://vt.tiktok.com/ZS9L9jHg8myWc-tvXFk/", image: "https://p16-oec-va.ibyteimg.com/tos-maliva-i-o3syd03w52-us/2cb7bb33e8f748b4824cc68d63dbf7b9~tplv-o3syd03w52-crop-webp:600:600.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" },
+        { nome: "Tênis Moleca Feminino Classic", descricao: "Napa, conforto, cadarço", link: "https://vt.tiktok.com/ZS9L9jXu5PxPY-NhLc4/", image: "https://p16-oec-va.ibyteimg.com/tos-maliva-i-o3syd03w52-us/8695967697b34dd0be733f6ad732ff5f~tplv-o3syd03w52-crop-webp:1024:1024.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839" }
     ];
 
     // Renderizar os cards (sem preço)
@@ -452,7 +493,6 @@
             img.src = prod.image;
             img.alt = `Imagem ${prod.nome}`;
             img.loading = 'lazy';
-            // Fallback para imagens quebradas ou lentas
             img.onerror = () => { img.src = 'https://picsum.photos/id/1/400/600'; };
             imgWrapper.appendChild(img);
             
@@ -467,7 +507,6 @@
             desc.className = 'product-description';
             desc.innerHTML = `<i class="fas fa-tag"></i> ${prod.descricao}`;
             
-            // Botão comprar
             const btnComprar = document.createElement('button');
             btnComprar.className = 'btn-buy';
             btnComprar.innerHTML = '<i class="fas fa-shopping-cart"></i> Comprar Agora <i class="fas fa-arrow-right"></i>';
@@ -483,7 +522,6 @@
             
             infoDiv.appendChild(title);
             infoDiv.appendChild(desc);
-            // REMOVIDO: preço (price-tag)
             infoDiv.appendChild(btnComprar);
             
             card.appendChild(imgWrapper);
@@ -494,8 +532,27 @@
     
     renderProducts();
 
+    // Botão compartilhar (usa a API nativa do navegador)
+    const shareBtn = document.getElementById('shareButton');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Vitrine TikTok - Priscila Rodrigues',
+                    text: 'Confira os produtos incríveis da Priscila Vencedora!',
+                    url: 'https://vt.tiktok.com/ZSHWT2Thu/?page=TikTokShop'
+                }).catch(() => {});
+            } else {
+                // Fallback: copiar link
+                navigator.clipboard.writeText('https://vt.tiktok.com/ZSHWT2Thu/?page=TikTokShop');
+                alert('Link copiado! Compartilhe com seus amigos.');
+            }
+        });
+    }
+
     // Botão WhatsApp
-    const whatsappNumber = "5511991989486"; // 🔁 SUBSTITUA PELO SEU NÚMERO REAL
+    const whatsappNumber = "5511991989486";
     const whatsappMessage = "Olá Priscila! Vi seus produtos na vitrine TikTok e quero saber mais!";
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
     const waButton = document.getElementById('whatsappFixedBtn');
